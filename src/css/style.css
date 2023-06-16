@@ -1,0 +1,145 @@
+form {
+    padding: 3.2rem;
+    border: 1px solid var(--color-base-gray-100);
+    border-radius: 0.6rem;
+    overflow: hidden;
+}
+
+.step-progress {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    border-bottom: 1px solid var(--color-base-gray-100);
+    padding-bottom: 3.2rem;
+    counter-reset: step;
+}
+
+.step-progress strong {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--color-base-gray-200);
+}
+
+.step-progress strong.active {
+    color: var(--color-base-gray-400);
+}
+
+.step-progress strong::before {
+    content: counter(step);
+    counter-increment: step;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.4rem;
+    background-color: var(--color-base-gray-100);
+    color: var(--color-base-gray-200);
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-progress .active::before {
+    background-color: var(--color-produto-purple-mid);
+    color: var(--color-base-white);
+}
+
+.step-progress .done::before {
+    content: "✓";
+    background-color: var(--color-feedback-sucess);
+}
+
+.content {
+    margin-top: 3.2rem;
+    display: grid;
+    gap: 1.6rem;
+}
+
+.button-wrapper {
+    margin-top: 3.2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6rem 3.2rem;
+    border: none;
+    border-radius: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    min-width: 15.8rem;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: var(--color-produto-purple-mid);
+    color: var(--color-base-white);
+}
+
+.primary:hover {
+    background-color: var(--color-produto-purple-light);
+}
+
+.secondary {
+    background-color: var(--color-base-white);
+    color: var(--color-produto-purple-mid);
+    border: 1px solid var(--color-produto-purple-mid);
+}
+
+/*--- UTILITÁRIA ---*/
+.justify-end {
+    justify-content: flex-end;
+}
+/*--- FIM ---*/
+
+label {
+    font-weight: 700;
+    color: var(--color-base-gray-400);
+}
+
+input,
+textarea {
+    font-family: 'IBM Plex Sans', sans-serif;
+    width: 100%;
+    margin-top: 4px;
+    padding: 1.6rem;
+    background-color: var(--color-base-white);
+    border: 1px solid var(--color-base-gray-100);
+    border-radius: 0.2rem;  
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-base-gray-200);
+}
+
+.form-step {
+    display: block;
+    animation: slideout 200ms ease-in-out forwards;
+}
+
+@keyframes slideout {
+    100%{
+        transform: translateX(50%);
+        opacity: 0;
+    }
+}
+
+.form-step.active {
+    animation: appear 200ms 100ms ease-in-out backwards;
+}
+
+@keyframes appear {
+    0%{
+        scale: 0.7;
+        opacity: 0;
+    }
+}
+
+.hide {
+    display: none;
+}
